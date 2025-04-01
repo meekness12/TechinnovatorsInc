@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT || TECH INNOVATORS INC</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="mainheader">
+    <header>
+        <img src="down.png" alt="" id="logo">
+        <h1>TECH INNOVATORS INC</h1>
+        <input type="text" class="search-box" placeholder="Search...">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+    </header>
+    <input type="checkbox" id="menu-toggle" hidden>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+                <a href="#">Services ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Mobile Apps</a></li>
+                    <li><a href="#">Cloud Solutions</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Training ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="register.html" class="active">Register</a></li>
+            <li><a href="features.html">Features</a></li>
+            <div class="theme-toggle">
+                <input type="checkbox" id="dark-mode-toggle">
+                <label for="dark-mode-toggle" class="toggle-label"></label>
+            </div>
+        </ul>
+    </nav>
+    </div>
+    <main class="main">
+        <section>
+            <h2>REGISTER USER TO TECH INNOVATION INC</h2>
+        </section>
+            <form >
+                <fieldset>
+                    <legend>Personal Information</legend>
+        
+                        <label for="full_name">Full Name:</label>
+                        <input type="text" id="full_name" name="full_name" required placeholder="Enter your full name"><br><br>
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required><br><br>
+                        <label>Gender:</label>
+                        <input type="radio" id="male" name="gender" value="Male" required>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female" required>
+                        <label for="female">Female</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Contact Information</legend>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email"><br><br>
+
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" pattern="^\+?[0-9]{1,4}?[-.\s]?[0-9]{1,15}$"><br><br>
+
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address" required placeholder="Enter your address" rows="4"></textarea><br><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Account Information</legend>
+
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required placeholder="Choose a username"><br><br>
+                    
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password"><br><br>
+                 
+
+                        <label for="confirm_password">Confirm Password:</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm your password"><br><br>
+                   
+                </fieldset>
+                <fieldset>
+                    <legend>Preferences</legend>
+                        <label for="newsletter">Newsletter Subscription:</label>
+                        <input type="checkbox" id="newsletter" name="newsletter"><br><br>
+                        <label for="newsletter">Yes, I want to receive newsletters.</label>
+                        <label for="communication_method">Preferred Communication Method:</label>
+                        <select id="communication_method" name="communication_method" required>
+                            <option value="Email">Email</option>
+                            <option value="Phone">Phone</option>
+                            <option value="Both">Both</option>
+                        </select>
+                    </fieldset>
+                <fieldset>
+                    <legend>Additional Information</legend>
+                        <label for="profile_picture">Profile Picture:</label>
+                        <input type="file" id="profile_picture" name="profile_picture" accept="image/*"><br><br>
+                        <textarea id="bio" name="bio" placeholder="Write a brief bio about yourself" rows="4"></textarea><br><br>
+                    
+                </fieldset>
+                    <input type="submit" value="Register">
+                    <input type="reset" value="Reset">
+
+            </form>
+        
+        <a href="#top">go to top</a>
+    </main>
+    <aside>
+        <strong>📢 ANNOUNCEMENT FROM Tech Innovators Inc 📢</strong>
+        <marquee behavior="scroll" direction="up" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()">
+            Dear Students, Staff, and Stakeholders, <br><br>
+            to announce the launch of the ePortfolio System, <br>
+            a new digital platform designed <br>to streamline the collection, 
+            submission, and management of academic evidence.<br><br>
+            <strong>🔹 What’s New?</strong>
+            ✅ Digital storage for academic portfolios<br>
+            ✅ Easy submission of evidence online<br>
+            ✅ Enhanced grading and feedback process<br>
+            ✅ Improved security and backup of student records
+            <br><br>
+        </marquee>
+        <strong>Tech Innovators Inc – Empowering the Future!</strong>
+    </aside>
+    <footer>
+        <p>&copy; 2025 Tech Innovators Inc</p>
+        <a href="/privacy-policy" aria-label="Privacy Policy">Privacy Policy</a> |
+        <a href="/terms-and-conditions" aria-label="Terms and Conditions">Terms and Conditions</a><br>
+        <a href="https://www.facebook.com/TechInnovators" target="_blank" aria-label="Facebook">
+            Facebook
+        </a> |
+        <a href="https://twitter.com/TechInnovators" target="_blank" aria-label="Twitter">
+            X
+        </a> |
+        <a href="https://www.linkedin.com/company/TechInnovators" target="_blank" aria-label="LinkedIn">
+            LinkedIn
+        </a> |
+        <a href="https://www.instagram.com/TechInnovators" target="_blank" aria-label="Instagram">
+            Instagram
+        </a>
+
+    </footer>
+</body>
+</html>

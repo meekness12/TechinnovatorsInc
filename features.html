@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT || TECH INNOVATORS INC</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="mainheader">
+    <header>
+        <img src="down.png" alt="" id="logo">
+        <h1>TECH INNOVATORS INC</h1>
+        <input type="text" class="search-box" placeholder="Search...">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+    </header>
+    <input type="checkbox" id="menu-toggle" hidden>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+                <a href="#">Services ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Mobile Apps</a></li>
+                    <li><a href="#">Cloud Solutions</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Training ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="features.html" class="active">Features</a></li>
+            <div class="theme-toggle">
+                <input type="checkbox" id="dark-mode-toggle">
+                <label for="dark-mode-toggle" class="toggle-label"></label>
+            </div>
+        </ul>
+    </nav>
+    </div>
+    <main class="main">
+        <h2>FEATURES</h2>
+        <div class="features-section">
+            <div class="feature">
+                <h2>Geolocation API</h2>
+                <p>Click the button below to display your current location (latitude and longitude).</p>
+                <button onclick="getLocation()">Get My Location</button>
+                <p id="location"></p>
+            </div>
+        
+            <div class="feature">
+                <h2>Web Storage API - To-Do List</h2>
+                <p>Create your to-do list and it will be saved even after you refresh the page.</p>
+                <input type="text" id="todoInput" placeholder="Enter a task">
+                <button onclick="addTask()">Add Task</button>
+                <ul id="todoList" class="todo-list"></ul>
+            </div>
+        </div>
+        <div class="feature">
+                <h2>Fetch API - Fetching Data from JSONPlaceholder</h2>
+                <button onclick="fetchData()">Fetch User Data</button>
+                <ul id="userData"></ul>
+            </div>
+        
+            <div class="feature">
+                <h2>Canvas API - Drawing Feature</h2>
+                <p>Draw on the canvas below!</p>
+                <canvas id="canvas" width="600" height="400"></canvas>
+                <button onclick="clearCanvas()">Clear Canvas</button>
+            </div>
+        </div>
+        
+        <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        document.getElementById('location').innerHTML = `Latitude: ${lat} <br>Longitude: ${lon}`;
+                    });
+                } else {
+                    document.getElementById('location').innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+        
+            function addTask() {
+                const todoInput = document.getElementById('todoInput');
+                const todoText = todoInput.value.trim();
+        
+                if (todoText) {
+                    const todoList = document.getElementById('todoList');
+                    const li = document.createElement('li');
+                    li.textContent = todoText;
+                    todoList.appendChild(li);
+        
+                    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                    tasks.push(todoText);
+                    localStorage.setItem('tasks', JSON.stringify(tasks));
+                    todoInput.value = '';
+                }
+            }
+        
+            window.onload = function() {
+                const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+                const todoList = document.getElementById('todoList');
+                tasks.forEach(task => {
+                    const li = document.createElement('li');
+                    li.textContent = task;
+                    todoList.appendChild(li);
+                });
+            }
+        
+            function fetchData() {
+                fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(response => response.json())
+                    .then(data => {
+                        const userData = document.getElementById('userData');
+                        userData.innerHTML = ''; 
+                        data.forEach(user => {
+                            const li = document.createElement('li');
+                            li.textContent = `${user.name} - ${user.email}`;
+                            userData.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            }
+        
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            let drawing = false;
+        
+            function getMousePosition(e) {
+                const rect = canvas.getBoundingClientRect();
+                return {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
+            }
+        
+            canvas.addEventListener('mousedown', (e) => {
+                drawing = true;
+                const pos = getMousePosition(e);
+                ctx.beginPath();
+                ctx.moveTo(pos.x, pos.y);
+            });
+        
+            canvas.addEventListener('mousemove', (e) => {
+                if (drawing) {
+                    const pos = getMousePosition(e);
+                    ctx.lineTo(pos.x, pos.y);
+                    ctx.stroke();
+                }
+            });
+        
+            canvas.addEventListener('mouseup', () => {
+                drawing = false;
+            });
+        
+            canvas.addEventListener('mouseleave', () => {
+                drawing = false;
+            });
+        
+            function clearCanvas() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        </script>
+        
+        <a href="#top">go to top</a>
+    </main>
+    <aside>
+        <strong>📢 ANNOUNCEMENT FROM Tech Innovators Inc 📢</strong>
+        <marquee behavior="scroll" direction="up" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()">
+            Dear Students, Staff, and Stakeholders, <br><br>
+            to announce the launch of the ePortfolio System, <br>
+            a new digital platform designed <br>to streamline the collection, 
+            submission, and management of academic evidence.<br><br>
+            <strong>🔹 What’s New?</strong>
+            ✅ Digital storage for academic portfolios<br>
+            ✅ Easy submission of evidence online<br>
+            ✅ Enhanced grading and feedback process<br>
+            ✅ Improved security and backup of student records
+            <br><br>
+        </marquee>
+        <strong>Tech Innovators Inc – Empowering the Future!</strong>
+    </aside>
+    <footer>
+        <p>&copy; 2025 Tech Innovators Inc</p>
+        <a href="/privacy-policy" aria-label="Privacy Policy">Privacy Policy</a> |
+        <a href="/terms-and-conditions" aria-label="Terms and Conditions">Terms and Conditions</a><br>
+        <a href="https://www.facebook.com/TechInnovators" target="_blank" aria-label="Facebook">
+            Facebook
+        </a> |
+        <a href="https://twitter.com/TechInnovators" target="_blank" aria-label="Twitter">
+            X
+        </a> |
+        <a href="https://www.linkedin.com/company/TechInnovators" target="_blank" aria-label="LinkedIn">
+            LinkedIn
+        </a> |
+        <a href="https://www.instagram.com/TechInnovators" target="_blank" aria-label="Instagram">
+            Instagram
+        </a>
+
+    </footer>
+</body>
+</html>

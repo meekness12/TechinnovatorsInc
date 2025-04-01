@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Only Dark Mode</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Light Mode (Default) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222;
+    --toggle-bg: #ddd;
+    --toggle-circle: #ffffff;
+}
+
+/* Dark Mode (Applied when Checkbox is Checked) */
+body:has(#dark-mode-toggle:checked) {
+    --bg-color: #222;
+    --text-color: #ffffff;
+    --toggle-bg: #444;
+    --toggle-circle: #ffcc00;
+}
+
+/* Apply Theme */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Toggle Button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+/* Toggle Label */
+.toggle-label {
+    width: 50px;
+    height: 26px;
+    background-color: var(--toggle-bg);
+    display: block;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Toggle Circle */
+.toggle-label::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: var(--toggle-circle);
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Move Circle when Checked */
+#dark-mode-toggle:checked + .toggle-label::before {
+    transform: translateX(24px);
+    background-color: var(--toggle-circle);
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="theme-toggle">
+        <input type="checkbox" id="dark-mode-toggle">
+        <label for="dark-mode-toggle" class="toggle-label"></label>
+    </div>
+
+    <div class="content">
+        <h1>Dark Mode with Pure CSS</h1>
+        <p>Toggle the switch to change between light and dark modes.</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT || TECH INNOVATORS INC</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="mainheader">
+    <header>
+        <img src="down.png" alt="" id="logo">
+        <h1>TECH INNOVATORS INC</h1>
+        <input type="text" class="search-box" placeholder="Search...">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+    </header>
+    <input type="checkbox" id="menu-toggle" hidden>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+                <a href="#">Services ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Mobile Apps</a></li>
+                    <li><a href="#">Cloud Solutions</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Training ▼</a>
+                <ul class="submenu">
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="features.html">Features</a></li>
+            <div class="theme-toggle">
+                <input type="checkbox" id="dark-mode-toggle">
+                <label for="dark-mode-toggle" class="toggle-label"></label>
+            </div>
+        </ul>
+    </nav>
+    </div>
+    <main class="main">
+        <div class="contact-feedback">
+            <form action="" method="post" class="contact-form">
+                <fieldset>
+                    <legend>CONTACT US</legend>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+        
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea><br>
+        
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+        
+            <div class="feedback-section">
+                <form class="feedback-form">
+                    <div class="form-group">
+                        <h3>FEEDBACK</h3>
+                        <label for="feedback-message">Your Feedback:</label>
+                        <textarea id="feedback-message" name="message" required placeholder="Write your feedback here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rate Our Service:</label>
+                        <div class="rating">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5">★</label>
+        
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4">★</label>
+        
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3">★</label>
+        
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2">★</label>
+        
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1">★</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAchSR24DoRTVAKj4fOjkA-oV_aKa1tyeY&q=IPRC+Karongi"
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <a href="#top">go to top</a>
+    </main>
+    <aside>
+        <strong>📢 ANNOUNCEMENT FROM Tech Innovators Inc 📢</strong>
+        <marquee behavior="scroll" direction="up" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()">
+            Dear Students, Staff, and Stakeholders, <br><br>
+            to announce the launch of the ePortfolio System, <br>
+            a new digital platform designed <br>to streamline the collection, 
+            submission, and management of academic evidence.<br><br>
+            <strong>🔹 What’s New?</strong>
+            ✅ Digital storage for academic portfolios<br>
+            ✅ Easy submission of evidence online<br>
+            ✅ Enhanced grading and feedback process<br>
+            ✅ Improved security and backup of student records
+            <br><br>
+        </marquee>
+        <strong>Tech Innovators Inc – Empowering the Future!</strong>
+    </aside>
+    <footer>
+        <p>&copy; 2025 Tech Innovators Inc</p>
+        <a href="/privacy-policy" aria-label="Privacy Policy">Privacy Policy</a> |
+        <a href="/terms-and-conditions" aria-label="Terms and Conditions">Terms and Conditions</a><br>
+        <a href="https://www.facebook.com/TechInnovators" target="_blank" aria-label="Facebook">
+            Facebook
+        </a> |
+        <a href="https://twitter.com/TechInnovators" target="_blank" aria-label="Twitter">
+            X
+        </a> |
+        <a href="https://www.linkedin.com/company/TechInnovators" target="_blank" aria-label="LinkedIn">
+            LinkedIn
+        </a> |
+        <a href="https://www.instagram.com/TechInnovators" target="_blank" aria-label="Instagram">
+            Instagram
+        </a>
+
+    </footer>
+</body>
+</html>
